@@ -1,6 +1,6 @@
 # A small Go program to read /var/log/audit/audit.log
 
-Enable auditing of outogoing connections
+Ever wondered where your host is trying to connect to ? Enable auditing of outogoing connections and use this tool to get a simple list of outgoing connections detailing the date/time the application, parent pid and pid, the user and group id and the destination IP:PORT.
 
 ### Pre-req
 
