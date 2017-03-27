@@ -21,7 +21,7 @@ func main() {
 	// results contains a list of maps
 	var results []map[string]string
 
-	re, err := regexp.Compile(`(?im)type=SYSCALL msg=audit\((?P<epoch>\d+.\d+):\d+\): arch=\w+ syscall=\d+ success=(?P<success>\w+) exit=?(?P<exit>\-?\d+) \w+=\w+ \w+=\w+ \w+=\w+ \w+=\w+ \w+=\d+ ppid=(?P<ppid>\d+) pid=(?P<pid>\d+) \w+=\w+ uid=(?P<uid>\d+) gid=(?P<gid>\d+) \w+=\w+ \w+=\w+ \w+=\w+ \w+=\w+ \w+=\w+ \w+=\w+ \w+=\w+ \w+=\w+ comm=\"(?P<comm>\w+)\" exe=\"(?P<exe>[\w\/]+)" key=\"(?P<key>\w+)\"\ntype=SOCKADDR msg=audit\(\d+.\d+:\d+\): saddr=(?P<saddr>\w+)\ntype=PROCTITLE msg=audit\(\d+.\d+:\d+\): .*$`)
+	re, err := regexp.Compile(`(?im)type=SYSCALL msg=audit\((?P<epoch>\d+.\d+):\d+\): arch=\w+ syscall=\d+ success=(?P<success>\w+) exit=?(?P<exit>\-?\d+) .* ppid=(?P<ppid>\d+) pid=(?P<pid>\d+) .* uid=(?P<uid>\d+) gid=(?P<gid>\d+) .* comm=\"(?P<comm>\w+)\" exe=\"(?P<exe>[\w\/]+)" key=\"(?P<key>\w+)\"\ntype=SOCKADDR msg=audit\(\d+.\d+:\d+\): saddr=(?P<saddr>\w+)\ntype=(?:UNKNOWN\[\d+\]|PROCTITLE) msg=audit\(\d+.\d+:\d+\): .*$`)
 	if err != nil {
 		log.Fatalf("There was an error. %v\n", err)
 	}
