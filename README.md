@@ -19,11 +19,22 @@ curl -v http://www.google.com
 ```
 
 ### Run auditr
-*(Note: this is still in progress, currently only takes inline text)*
 
 ```
 go run main.go -f /var/log/audit/audit.log
 ```
+
+or to install and run 
+```
+go get github.com/alex-leonhardt/auditr
+$GOPATH/bin/auditr -f /path/to/audit.log
+```
+
+display help
+```
+$GOPATH/bin/auditr -h
+```
+
 
 ### Example Output
 
