@@ -1,7 +1,5 @@
 ---
 format_version: 3
-pipelines:
-  
 environments:
   dev:
     environment_variables:
