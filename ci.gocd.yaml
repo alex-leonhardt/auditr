@@ -1,0 +1,31 @@
+---
+format_version: 3
+pipelines:
+  
+environments:
+  dev:
+    environment_variables:
+      ENV: "dev"
+pipelines:
+  auditr-build:
+    group: auditr
+    label_template: "${mygit[:8]}"
+    lock_behavior: unlockWhenFinished
+    materials:
+      mygit:
+        git: https://github.com/alex-leonhardt/auditr.git
+        branch: master
+    stages:
+      - build:
+          clean_workspace: true
+          jobs:
+            compile:
+              tasks:
+                - exec:
+                    command: /bin/bash
+                    arguments:
+                      - "-c"
+                      - "echo"
+                      - "hello world"
+                - script: ./build.sh
+    
